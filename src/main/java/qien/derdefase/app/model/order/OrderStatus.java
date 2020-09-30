@@ -1,0 +1,6 @@
+package qien.derdefase.app.model.order;
+
+public enum OrderStatus {
+
+    PREORDERSTAGE, PREPARINGFORPRODUCTION, INPRODUCTION, PREPARINGFORSHIPMENT, INSHIPMENT, DELIVERED
+}
