@@ -15,7 +15,22 @@ public class SteelWireRope extends Product {
         this.height = 10;
         this.width = 200;
         this.depth = 10;
-        this.diameter = 10;
-        this.numberOfStrings = 20;
+    }
+
+
+    public double getDiameter() {
+        return diameter;
+    }
+
+    public void setDiameter(double diameter) {
+        this.diameter = diameter;
+    }
+
+    public int getNumberOfStrings() {
+        return numberOfStrings;
+    }
+
+    public void setNumberOfStrings(int numberOfStrings) {
+        this.numberOfStrings = numberOfStrings;
     }
 }

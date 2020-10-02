@@ -16,9 +16,9 @@ public class Quotation extends OrderInProcess {
         super();
         this.setShippingMethod(quotationRequest.getShippingMethod());
         this.setExpectedDeliveryDate(quotationRequest.getDeliveryDate());
-        this.setNumberOfSteelWireRopes(quotationRequest.getNumberOfSteelWireRopes());
-        this.setNumberOfEndConnections(quotationRequest.getNumberOfEndConnections());
-        this.setNumberOfClamps(quotationRequest.getNumberOfClamps());
+        this.setSteelWireRope(quotationRequest.getSteelWireRope());
+        this.setEndConnection(quotationRequest.getEndConnection());
+        this.setClamps(quotationRequest.getClamps());
         //set orderStatus
         //eerst Price orderPrice aanmaken en opslaan in database?
         this.setOrderPrice(price);

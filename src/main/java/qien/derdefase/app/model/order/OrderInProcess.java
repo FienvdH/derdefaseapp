@@ -1,5 +1,9 @@
 package qien.derdefase.app.model.order;
 
+import qien.derdefase.app.model.product.Clamps;
+import qien.derdefase.app.model.product.EndConnection;
+import qien.derdefase.app.model.product.SteelWireRope;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -11,9 +15,12 @@ abstract public class OrderInProcess {
     private long orderId;
     private ShippingMethod shippingMethod;
     private LocalDate expectedDeliveryDate;
-    private int numberOfSteelWireRopes;
-    private int numberOfEndConnections;
-    private int numberOfClamps;
+    @OneToOne
+    private SteelWireRope steelWireRope;
+    @OneToOne
+    private EndConnection endConnection;
+    @OneToOne
+    private Clamps clamps;
     private OrderStatus orderStatus;
     @OneToOne
     private Price orderPrice;
@@ -42,28 +49,28 @@ abstract public class OrderInProcess {
         this.orderPrice = orderPrice;
     }
 
-    public int getNumberOfSteelWireRopes() {
-        return numberOfSteelWireRopes;
+    public SteelWireRope getSteelWireRope() {
+        return steelWireRope;
     }
 
-    public void setNumberOfSteelWireRopes(int numberOfSteelWireRopes) {
-        this.numberOfSteelWireRopes = numberOfSteelWireRopes;
+    public void setSteelWireRope(SteelWireRope steelWireRope) {
+        this.steelWireRope = steelWireRope;
     }
 
-    public int getNumberOfEndConnections() {
-        return numberOfEndConnections;
+    public EndConnection getEndConnection() {
+        return endConnection;
     }
 
-    public void setNumberOfEndConnections(int numberOfEndConnections) {
-        this.numberOfEndConnections = numberOfEndConnections;
+    public void setEndConnection(EndConnection endConnection) {
+        this.endConnection = endConnection;
     }
 
-    public int getNumberOfClamps() {
-        return numberOfClamps;
+    public Clamps getClamps() {
+        return clamps;
     }
 
-    public void setNumberOfClamps(int numberOfClamps) {
-        this.numberOfClamps = numberOfClamps;
+    public void setClamps(Clamps clamps) {
+        this.clamps = clamps;
     }
 
     public LocalDate getExpectedDeliveryDate() {
