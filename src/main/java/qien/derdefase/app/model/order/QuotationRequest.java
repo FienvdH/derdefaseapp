@@ -1,5 +1,9 @@
 package qien.derdefase.app.model.order;
 
+import qien.derdefase.app.model.product.Clamps;
+import qien.derdefase.app.model.product.EndConnection;
+import qien.derdefase.app.model.product.SteelWireRope;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -11,9 +15,24 @@ public class QuotationRequest {
     private long quotationRequestId;
     private ShippingMethod shippingMethod;
     private LocalDate deliveryDate;
-    private int numberOfSteelWireRopes;
-    private int numberOfEndConnections;
-    private int numberOfClamps;
+    @OneToOne
+    private SteelWireRope steelWireRope;
+    @OneToOne
+    private EndConnection endConnection;
+    @OneToOne
+    private Clamps clamps;
+
+    public QuotationRequest(){
+
+    }
+
+    public QuotationRequest(QuotationRequest quotationRequest, SteelWireRope steelWireRope, EndConnection endConnection, Clamps clamps) {
+        this.shippingMethod = quotationRequest.shippingMethod;
+        this.deliveryDate = quotationRequest.deliveryDate;
+        this.steelWireRope = steelWireRope;
+        this.endConnection = endConnection;
+        this.clamps = clamps;
+    }
 
     //getters en setters
 
@@ -33,30 +52,6 @@ public class QuotationRequest {
         this.shippingMethod = shippingMethod;
     }
 
-    public int getNumberOfSteelWireRopes() {
-        return numberOfSteelWireRopes;
-    }
-
-    public void setNumberOfSteelWireRopes(int numberOfSteelWireRopes) {
-        this.numberOfSteelWireRopes = numberOfSteelWireRopes;
-    }
-
-    public int getNumberOfEndConnections() {
-        return numberOfEndConnections;
-    }
-
-    public void setNumberOfEndConnections(int numberOfEndConnections) {
-        this.numberOfEndConnections = numberOfEndConnections;
-    }
-
-    public int getNumberOfClamps() {
-        return numberOfClamps;
-    }
-
-    public void setNumberOfClamps(int numberOfClamps) {
-        this.numberOfClamps = numberOfClamps;
-    }
-
     public LocalDate getDeliveryDate() {
         return deliveryDate;
     }
@@ -65,4 +60,27 @@ public class QuotationRequest {
         this.deliveryDate = deliveryDate;
     }
 
+    public SteelWireRope getSteelWireRope() {
+        return steelWireRope;
+    }
+
+    public void setSteelWireRope(SteelWireRope steelWireRope) {
+        this.steelWireRope = steelWireRope;
+    }
+
+    public EndConnection getEndConnection() {
+        return endConnection;
+    }
+
+    public void setEndConnection(EndConnection endConnection) {
+        this.endConnection = endConnection;
+    }
+
+    public Clamps getClamps() {
+        return clamps;
+    }
+
+    public void setClamps(Clamps clamps) {
+        this.clamps = clamps;
+    }
 }

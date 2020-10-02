@@ -5,16 +5,33 @@ import javax.persistence.Entity;
 @Entity
 public class EndConnection extends Product {
 
-    //MaterialEndconnection materialEndconnection;
-    int minimumBreakingLoadInKilos;
+    private MaterialEndconnection materialEndconnection;
+    private int minimumBreakingLoadInKilos;
 
     public EndConnection() {
-        this.productionHours = 3;
-        this.productCosts = 100;
-        this.weightInKilos = 23;
-        this.height = 18;
-        this.width = 18;
-        this.depth = 20;
-        this.minimumBreakingLoadInKilos = 500;
+        this.productionHours = 2;
+        this.productCosts = 50;
+        this.weightInKilos = 15;
+        this.height = 15;
+        this.width = 15;
+        this.depth = 12;
     }
+
+    public MaterialEndconnection getMaterialEndconnection() {
+        return materialEndconnection;
+    }
+
+    public void setMaterialEndconnection(MaterialEndconnection materialEndconnection) {
+        this.materialEndconnection = materialEndconnection;
+    }
+
+    public int getMinimumBreakingLoadInKilos() {
+        return minimumBreakingLoadInKilos;
+    }
+
+    public void setMinimumBreakingLoadInKilos(int minimumBreakingLoadInKilos) {
+        this.minimumBreakingLoadInKilos = minimumBreakingLoadInKilos;
+    }
+
+
 }

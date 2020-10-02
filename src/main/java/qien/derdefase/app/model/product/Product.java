@@ -1,11 +1,11 @@
 package qien.derdefase.app.model.product;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class Product {
 
     @Id
@@ -17,7 +17,7 @@ abstract public class Product {
     double height;
     double width;
     double depth;
-    // int quantity; niet nodig als quantity al eerder wordt doorgegeven?
+    int quantity;
 
     public long getProductId() {
         return productId;
@@ -75,11 +75,11 @@ abstract public class Product {
         this.depth = depth;
     }
 
-//    public int getQuantity() {
-//        return quantity;
-//    }
-//
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
+   public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

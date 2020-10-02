@@ -43,11 +43,7 @@ public class Price {
         this.total = logisticCosts + productionCosts + productionCosts + margin;
             }
 
-
-
-
     // getters en setters
-
 
     public long getPriceId() {
         return priceId;
@@ -101,8 +97,9 @@ public class Price {
     //lelijk als er bijvoorbeeld maar 1 soort product wordt gevraagd, onhandig als er nieuwe producten bijkomen
 
     private double calculateProductCosts(QuotationRequest quotationRequest){
-        return quotationRequest.getNumberOfClamps() * new Clamps().getProductCosts() + quotationRequest.getNumberOfEndConnections() + new EndConnection().getProductCosts()
-                + quotationRequest.getNumberOfSteelWireRopes() * new SteelWireRope().getProductCosts();
+        return quotationRequest.getClamps().getQuantity() * quotationRequest.getClamps().getProductCosts()
+                + quotationRequest.getEndConnection().getQuantity() + quotationRequest.getEndConnection().getProductCosts()
+                + quotationRequest.getSteelWireRope().getQuantity() * quotationRequest.getSteelWireRope().getProductCosts();
     }
 
     // berekenen shipping costs, nu in vaste bedragen, later nog percentage
@@ -117,8 +114,10 @@ public class Price {
     //berekenen productiekosten
 
     private double calculateProductionCosts(QuotationRequest quotationRequest) {
-        return quotationRequest.getNumberOfClamps() * new Clamps().getProductionHours()  + quotationRequest.getNumberOfEndConnections() + new EndConnection().getProductionHours()
-                + quotationRequest.getNumberOfSteelWireRopes() * new SteelWireRope().getProductionHours() * new Production().getPricePerHour();
+        return (quotationRequest.getClamps().getQuantity() * quotationRequest.getClamps().getProductionHours()
+                + quotationRequest.getEndConnection().getQuantity() * quotationRequest.getEndConnection().getProductionHours()
+                + quotationRequest.getSteelWireRope().getQuantity() * quotationRequest.getSteelWireRope().getProductionHours())
+                * new Production().getPricePerHour();
     }
 }
 
