@@ -15,6 +15,7 @@ import qien.derdefase.app.service.productservice.EndConnectionService;
 import qien.derdefase.app.service.productservice.ProductService;
 import qien.derdefase.app.service.productservice.SteelWireRopeService;
 
+@CrossOrigin(origins = { "http://localhost:3000" })
 @RestController
 @RequestMapping("/client")
 public class ClientEndpoint {
